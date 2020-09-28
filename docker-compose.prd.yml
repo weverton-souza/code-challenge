@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  mysqlsrv:
+    image: mysql:8.0.21
+    environment:
+      MYSQL_ROOT_USER: user
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: external url
+    ports:
+      - "3306:3306"
+    networks:
+      - mysql-compose-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    links:
+      - mysqlsrv
+    ports:
+      - 5000:80
+    environment:
+      - PMA_ARBITRARY=1
+    networks:
+      - mysql-compose-network
+
+networks:
+  mysql-compose-network:
+    driver: bridge

@@ -1,0 +1,13 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /v1/dev
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/umctec_dev_db
+    username: root
+    password: dW1jdGVjX2Rldl9kYg==
